@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.obsidianwidget-mergeDebugResources-63:/values-port/values-port.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\kaito\\.gradle\\caches\\transforms-3\\f8bcd69635dbc29112e7afc1f20e3672\\transformed\\appcompat-1.6.1\\res\\values-port\\values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./gradlew:*)",
+      "Bash(gradlew.bat clean:*)",
+      "Bash(cmd:*)",
+      "Bash(.gradlew assembleDebug)",
+      "Bash(gradlew:*)",
+      "Bash(.\\gradlew.bat:*)",
+      "Bash(.gradle-8.5bingradle.bat assembleDebug)",
+      "Bash(powershell:*)",
+      "Bash(rm:*)",
+      "Bash(\"./gradlew.bat\" assembleDebug)",
+      "Bash(ls:*)",
+      "Bash(gradle:*)",
+      "WebFetch(domain:developer.android.com)",
+      "WebFetch(domain:help.obsidian.md)",
+      "Bash(.\\gradlew.bat:*)"
+    ],
+    "deny": []
+  }
+}

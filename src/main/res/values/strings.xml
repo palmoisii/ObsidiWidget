@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Obsidian Widget</string>
+    <string name="widget_description">Obsidianメモへの素早いアクセス</string>
+    <string name="new_note">新規メモ</string>
+    <string name="recent_notes">最近のメモ</string>
+    <string name="open_obsidian">Obsidianを開く</string>
+</resources>

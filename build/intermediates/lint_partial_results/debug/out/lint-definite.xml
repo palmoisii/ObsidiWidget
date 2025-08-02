@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.2.0" type="incidents">
+
+    <incident
+        id="ScopedStorage"
+        severity="warning"
+        message="The Google Play store has a policy that limits usage of MANAGE_EXTERNAL_STORAGE">
+        <location
+            file="${:*debug*MAIN*sourceProvider*0*manifest*0}"
+            line="7"
+            column="36"
+            startOffset="363"
+            endLine="7"
+            endColumn="78"
+            endOffset="405"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;📝 Obsidian Widget&quot;, should use `@string` resource">
+        <location
+            file="${:*debug*MAIN*sourceProvider*0*resDir*0}/layout/obsidian_widget.xml"
+            line="13"
+            column="9"
+            startOffset="465"
+            endLine="13"
+            endColumn="42"
+            endOffset="498"/>
+    </incident>
+
+    <incident
+        id="SdCardPath"
+        severity="warning"
+        message="Do not hardcode &quot;/sdcard/&quot;; use `Environment.getExternalStorageDirectory().getPath()` instead">
+        <location
+            file="${:*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/obsidianwidget/data/ObsidianRepository.kt"
+            line="41"
+            column="101"
+            startOffset="1574"
+            endLine="41"
+            endColumn="109"
+            endOffset="1582"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.core:core-ktx than 1.12.0 is available: 1.16.0">
+        <fix-replace
+            description="Change to 1.16.0"
+            family="Update versions"
+            oldString="1.12.0"
+            replacement="1.16.0"/>
+        <location
+            file="${:*projectDir}/build.gradle"
+            line="41"
+            column="20"
+            startOffset="956"
+            endLine="41"
+            endColumn="51"
+            endOffset="987"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.1">
+        <fix-replace
+            description="Change to 1.7.1"
+            family="Update versions"
+            oldString="1.6.1"
+            replacement="1.7.1"/>
+        <location
+            file="${:*projectDir}/build.gradle"
+            line="42"
+            column="20"
+            startOffset="1008"
+            endLine="42"
+            endColumn="56"
+            endOffset="1044"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.lifecycle:lifecycle-runtime-ktx than 2.7.0 is available: 2.9.1">
+        <fix-replace
+            description="Change to 2.9.1"
+            family="Update versions"
+            oldString="2.7.0"
+            replacement="2.9.1"/>
+        <location
+            file="${:*projectDir}/build.gradle"
+            line="43"
+            column="20"
+            startOffset="1065"
+            endLine="43"
+            endColumn="68"
+            endOffset="1113"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.activity:activity-compose than 1.8.2 is available: 1.10.1">
+        <fix-replace
+            description="Change to 1.10.1"
+            family="Update versions"
+            oldString="1.8.2"
+            replacement="1.10.1"/>
+        <location
+            file="${:*projectDir}/build.gradle"
+            line="44"
+            column="20"
+            startOffset="1134"
+            endLine="44"
+            endColumn="62"
+            endOffset="1176"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.compose:compose-bom than 2024.02.00 is available: 2025.06.01">
+        <fix-replace
+            description="Change to 2025.06.01"
+            family="Update versions"
+            oldString="2024.02.00"
+            replacement="2025.06.01"/>
+        <location
+            file="${:*projectDir}/build.gradle"
+            line="45"
+            column="29"
+            startOffset="1206"
+            endLine="45"
+            endColumn="70"
+            endOffset="1247"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.glance:glance-appwidget than 1.0.0 is available: 1.1.1">
+        <fix-replace
+            description="Change to 1.1.1"
+            family="Update versions"
+            oldString="1.0.0"
+            replacement="1.1.1"/>
+        <location
+            file="${:*projectDir}/build.gradle"
+            line="50"
+            column="20"
+            startOffset="1488"
+            endLine="50"
+            endColumn="60"
+            endOffset="1528"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.glance:glance-material3 than 1.0.0 is available: 1.1.1">
+        <fix-replace
+            description="Change to 1.1.1"
+            family="Update versions"
+            oldString="1.0.0"
+            replacement="1.1.1"/>
+        <location
+            file="${:*projectDir}/build.gradle"
+            line="51"
+            column="20"
+            startOffset="1549"
+            endLine="51"
+            endColumn="60"
+            endOffset="1589"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.work:work-runtime-ktx than 2.9.0 is available: 2.10.2">
+        <fix-replace
+            description="Change to 2.10.2"
+            family="Update versions"
+            oldString="2.9.0"
+            replacement="2.10.2"/>
+        <location
+            file="${:*projectDir}/build.gradle"
+            line="52"
+            column="20"
+            startOffset="1610"
+            endLine="52"
+            endColumn="58"
+            endOffset="1648"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.datastore:datastore-preferences than 1.0.0 is available: 1.1.7">
+        <fix-replace
+            description="Change to 1.1.7"
+            family="Update versions"
+            oldString="1.0.0"
+            replacement="1.1.7"/>
+        <location
+            file="${:*projectDir}/build.gradle"
+            line="53"
+            column="20"
+            startOffset="1669"
+            endLine="53"
+            endColumn="68"
+            endOffset="1717"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.lifecycle:lifecycle-viewmodel-compose than 2.7.0 is available: 2.9.1">
+        <fix-replace
+            description="Change to 2.9.1"
+            family="Update versions"
+            oldString="2.7.0"
+            replacement="2.9.1"/>
+        <location
+            file="${:*projectDir}/build.gradle"
+            line="56"
+            column="20"
+            startOffset="1773"
+            endLine="56"
+            endColumn="74"
+            endOffset="1827"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.lifecycle:lifecycle-runtime-compose than 2.7.0 is available: 2.9.1">
+        <fix-replace
+            description="Change to 2.9.1"
+            family="Update versions"
+            oldString="2.7.0"
+            replacement="2.9.1"/>
+        <location
+            file="${:*projectDir}/build.gradle"
+            line="57"
+            column="20"
+            startOffset="1848"
+            endLine="57"
+            endColumn="72"
+            endOffset="1900"/>
+    </incident>
+
+</incidents>

@@ -1,0 +1,346 @@
+C:\Users\kaito\.gradle\caches\transforms-3\f7af7e3553a5b6e9a17d4554efbf2dcd\transformed\runtime-release\jars\lint.jar: Warning: Library lint checks reference invalid APIs; these checks will be skipped!
+
+Lint found an issue registry (androidx.compose.runtime.lint.RuntimeIssueRegistry)
+which contains some references to invalid API:
+org.jetbrains.kotlin.analysis.api.session.KtAnalysisSessionProvider: org.jetbrains.kotlin.analysis.api.lifetime.KtLifetimeTokenFactory getTokenFactory()
+(Referenced from androidx/compose/runtime/lint/AutoboxingStateCreationDetector.class)
+
+Therefore, this lint check library is not included
+in analysis. This affects the following lint checks:
+AutoboxingStateValueProperty
+AutoboxingStateCreation
+CoroutineCreationDuringComposition
+FlowOperatorInvokedInComposition
+ComposableLambdaParameterNaming
+ComposableLambdaParameterPosition
+ComposableNaming
+StateFlowValueCalledInComposition
+CompositionLocalNaming
+MutableCollectionMutableState
+ProduceStateDoesNotAssignValue
+RememberReturnType
+OpaqueUnitKey
+UnrememberedMutableState
+
+To use this lint check, upgrade to a more recent version
+of the library. [ObsoleteLintCustomCheck]
+
+   Explanation for issues of type "ObsoleteLintCustomCheck":
+   Lint can be extended with "custom checks": additional checks implemented by
+   developers and libraries to for example enforce specific API usages
+   required by a library or a company coding style guideline.
+
+   The Lint APIs are not yet stable, so these checks may either cause a
+   performance degradation, or stop working, or provide wrong results.
+
+   This warning flags custom lint checks that are found to be using obsolete
+   APIs and will need to be updated to run in the current lint environment.
+
+   It may also flag issues found to be using a newer version of the API,
+   meaning that you need to use a newer version of lint (or Android Studio or
+   Gradle plugin etc) to work with these checks.
+
+C:\Users\kaito\Desktop\Coding\obs\src\main\AndroidManifest.xml:7: Warning: The Google Play store has a policy that limits usage of MANAGE_EXTERNAL_STORAGE [ScopedStorage]
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "ScopedStorage":
+   Scoped storage is enforced on Android 10+ (or Android 11+ if using
+   requestLegacyExternalStorage). In particular, WRITE_EXTERNAL_STORAGE will
+   no longer provide write access to all files; it will provide the equivalent
+   of READ_EXTERNAL_STORAGE instead.
+
+   As of Android 13, if you need to query or interact with MediaStore or media
+   files on the shared storage, you should be using instead one or more new
+   storage permissions:
+   * android.permission.READ_MEDIA_IMAGES
+   * android.permission.READ_MEDIA_VIDEO
+   * android.permission.READ_MEDIA_AUDIO
+
+   and then add maxSdkVersion="33" to the older permission. See the developer
+   guide for how to do this:
+   https://developer.android.com/about/versions/13/behavior-changes-13#granula
+   r-media-permissions
+
+   The MANAGE_EXTERNAL_STORAGE permission can be used to manage all files, but
+   it is rarely necessary and most apps on Google Play are not allowed to use
+   it. Most apps should instead migrate to use scoped storage. To modify or
+   delete files, apps should request write access from the user as described
+   at https://goo.gle/android-mediastore-createwriterequest.
+
+   To learn more, read these resources: Play policy:
+   https://goo.gle/policy-storage-help Allowable use cases:
+   https://goo.gle/policy-storage-usecases
+
+   https://goo.gle/android-storage-usecases
+
+C:\Users\kaito\Desktop\Coding\obs\src\main\java\com\example\obsidianwidget\data\ObsidianRepository.kt:41: Warning: Do not hardcode "/sdcard/"; use Environment.getExternalStorageDirectory().getPath() instead [SdCardPath]
+                if (!canonicalPath.startsWith("/storage/emulated/0/") && !canonicalPath.startsWith("/sdcard/")) {
+                                                                                                    ~~~~~~~~
+
+   Explanation for issues of type "SdCardPath":
+   Your code should not reference the /sdcard path directly; instead use
+   Environment.getExternalStorageDirectory().getPath().
+
+   Similarly, do not reference the /data/data/ path directly; it can vary in
+   multi-user scenarios. Instead, use Context.getFilesDir().getPath().
+
+   https://developer.android.com/training/data-storage#filesExternal
+
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\xml\obsidian_widget_info.xml:10: Warning: Attribute targetCellWidth is only used in API level 31 and higher (current min is 26) [UnusedAttribute]
+    android:targetCellWidth="4"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\xml\obsidian_widget_info.xml:11: Warning: Attribute targetCellHeight is only used in API level 31 and higher (current min is 26) [UnusedAttribute]
+    android:targetCellHeight="3"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedAttribute":
+   This check finds attributes set in XML files that were introduced in a
+   version newer than the oldest version targeted by your application (with
+   the minSdkVersion attribute).
+
+   This is not an error; the application will simply ignore the attribute.
+   However, if the attribute is important to the appearance or functionality
+   of your application, you should consider finding an alternative way to
+   achieve the same result with only available attributes, and then you can
+   optionally create a copy of the layout in a layout-vNN folder which will be
+   used on API NN or higher where you can take advantage of the newer
+   attribute.
+
+   Note: This check does not only apply to attributes. For example, some tags
+   can be unused too, such as the new <tag> element in layouts introduced in
+   API 21.
+
+C:\Users\kaito\Desktop\Coding\obs\build.gradle:41: Warning: A newer version of androidx.core:core-ktx than 1.12.0 is available: 1.16.0 [GradleDependency]
+    implementation 'androidx.core:core-ktx:1.12.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\build.gradle:42: Warning: A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.1 [GradleDependency]
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\build.gradle:43: Warning: A newer version of androidx.lifecycle:lifecycle-runtime-ktx than 2.7.0 is available: 2.9.1 [GradleDependency]
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\build.gradle:44: Warning: A newer version of androidx.activity:activity-compose than 1.8.2 is available: 1.10.1 [GradleDependency]
+    implementation 'androidx.activity:activity-compose:1.8.2'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\build.gradle:45: Warning: A newer version of androidx.compose:compose-bom than 2024.02.00 is available: 2025.06.01 [GradleDependency]
+    implementation platform('androidx.compose:compose-bom:2024.02.00')
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\build.gradle:50: Warning: A newer version of androidx.glance:glance-appwidget than 1.0.0 is available: 1.1.1 [GradleDependency]
+    implementation 'androidx.glance:glance-appwidget:1.0.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\build.gradle:51: Warning: A newer version of androidx.glance:glance-material3 than 1.0.0 is available: 1.1.1 [GradleDependency]
+    implementation 'androidx.glance:glance-material3:1.0.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\build.gradle:52: Warning: A newer version of androidx.work:work-runtime-ktx than 2.9.0 is available: 2.10.2 [GradleDependency]
+    implementation 'androidx.work:work-runtime-ktx:2.9.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\build.gradle:53: Warning: A newer version of androidx.datastore:datastore-preferences than 1.0.0 is available: 1.1.7 [GradleDependency]
+    implementation 'androidx.datastore:datastore-preferences:1.0.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\build.gradle:56: Warning: A newer version of androidx.lifecycle:lifecycle-viewmodel-compose than 2.7.0 is available: 2.9.1 [GradleDependency]
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\build.gradle:57: Warning: A newer version of androidx.lifecycle:lifecycle-runtime-compose than 2.7.0 is available: 2.9.1 [GradleDependency]
+    implementation 'androidx.lifecycle:lifecycle-runtime-compose:2.7.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:5: Warning: The resource R.color.md_theme_light_onPrimary appears to be unused [UnusedResources]
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:6: Warning: The resource R.color.md_theme_light_primaryContainer appears to be unused [UnusedResources]
+    <color name="md_theme_light_primaryContainer">#EADDFF</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:7: Warning: The resource R.color.md_theme_light_onPrimaryContainer appears to be unused [UnusedResources]
+    <color name="md_theme_light_onPrimaryContainer">#21005D</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:9: Warning: The resource R.color.md_theme_light_onSecondary appears to be unused [UnusedResources]
+    <color name="md_theme_light_onSecondary">#FFFFFF</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:10: Warning: The resource R.color.md_theme_light_secondaryContainer appears to be unused [UnusedResources]
+    <color name="md_theme_light_secondaryContainer">#E8DEF8</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:11: Warning: The resource R.color.md_theme_light_onSecondaryContainer appears to be unused [UnusedResources]
+    <color name="md_theme_light_onSecondaryContainer">#1D192B</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:12: Warning: The resource R.color.md_theme_light_tertiary appears to be unused [UnusedResources]
+    <color name="md_theme_light_tertiary">#7D5260</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:13: Warning: The resource R.color.md_theme_light_onTertiary appears to be unused [UnusedResources]
+    <color name="md_theme_light_onTertiary">#FFFFFF</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:14: Warning: The resource R.color.md_theme_light_tertiaryContainer appears to be unused [UnusedResources]
+    <color name="md_theme_light_tertiaryContainer">#FFD8E4</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:15: Warning: The resource R.color.md_theme_light_onTertiaryContainer appears to be unused [UnusedResources]
+    <color name="md_theme_light_onTertiaryContainer">#31111D</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:16: Warning: The resource R.color.md_theme_light_error appears to be unused [UnusedResources]
+    <color name="md_theme_light_error">#BA1A1A</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:17: Warning: The resource R.color.md_theme_light_onError appears to be unused [UnusedResources]
+    <color name="md_theme_light_onError">#FFFFFF</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:18: Warning: The resource R.color.md_theme_light_errorContainer appears to be unused [UnusedResources]
+    <color name="md_theme_light_errorContainer">#FFDAD6</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:19: Warning: The resource R.color.md_theme_light_onErrorContainer appears to be unused [UnusedResources]
+    <color name="md_theme_light_onErrorContainer">#410002</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:21: Warning: The resource R.color.md_theme_light_onSurface appears to be unused [UnusedResources]
+    <color name="md_theme_light_onSurface">#1C1B1F</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:22: Warning: The resource R.color.md_theme_light_surfaceVariant appears to be unused [UnusedResources]
+    <color name="md_theme_light_surfaceVariant">#E7E0EC</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:23: Warning: The resource R.color.md_theme_light_onSurfaceVariant appears to be unused [UnusedResources]
+    <color name="md_theme_light_onSurfaceVariant">#49454F</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:25: Warning: The resource R.color.md_theme_light_outlineVariant appears to be unused [UnusedResources]
+    <color name="md_theme_light_outlineVariant">#CAC4D0</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:26: Warning: The resource R.color.md_theme_light_inverseSurface appears to be unused [UnusedResources]
+    <color name="md_theme_light_inverseSurface">#313033</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:27: Warning: The resource R.color.md_theme_light_inverseOnSurface appears to be unused [UnusedResources]
+    <color name="md_theme_light_inverseOnSurface">#F4EFF4</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:28: Warning: The resource R.color.md_theme_light_inversePrimary appears to be unused [UnusedResources]
+    <color name="md_theme_light_inversePrimary">#D0BCFF</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:31: Warning: The resource R.color.md_theme_dark_primary appears to be unused [UnusedResources]
+    <color name="md_theme_dark_primary">#D0BCFF</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:32: Warning: The resource R.color.md_theme_dark_onPrimary appears to be unused [UnusedResources]
+    <color name="md_theme_dark_onPrimary">#381E72</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:33: Warning: The resource R.color.md_theme_dark_primaryContainer appears to be unused [UnusedResources]
+    <color name="md_theme_dark_primaryContainer">#4F378B</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:34: Warning: The resource R.color.md_theme_dark_onPrimaryContainer appears to be unused [UnusedResources]
+    <color name="md_theme_dark_onPrimaryContainer">#EADDFF</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:35: Warning: The resource R.color.md_theme_dark_secondary appears to be unused [UnusedResources]
+    <color name="md_theme_dark_secondary">#CCC2DC</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:36: Warning: The resource R.color.md_theme_dark_onSecondary appears to be unused [UnusedResources]
+    <color name="md_theme_dark_onSecondary">#332D41</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:37: Warning: The resource R.color.md_theme_dark_secondaryContainer appears to be unused [UnusedResources]
+    <color name="md_theme_dark_secondaryContainer">#4A4458</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:38: Warning: The resource R.color.md_theme_dark_onSecondaryContainer appears to be unused [UnusedResources]
+    <color name="md_theme_dark_onSecondaryContainer">#E8DEF8</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:39: Warning: The resource R.color.md_theme_dark_tertiary appears to be unused [UnusedResources]
+    <color name="md_theme_dark_tertiary">#EFB8C8</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:40: Warning: The resource R.color.md_theme_dark_onTertiary appears to be unused [UnusedResources]
+    <color name="md_theme_dark_onTertiary">#492532</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:41: Warning: The resource R.color.md_theme_dark_tertiaryContainer appears to be unused [UnusedResources]
+    <color name="md_theme_dark_tertiaryContainer">#633B48</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:42: Warning: The resource R.color.md_theme_dark_onTertiaryContainer appears to be unused [UnusedResources]
+    <color name="md_theme_dark_onTertiaryContainer">#FFD8E4</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:43: Warning: The resource R.color.md_theme_dark_error appears to be unused [UnusedResources]
+    <color name="md_theme_dark_error">#FFB4AB</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:44: Warning: The resource R.color.md_theme_dark_onError appears to be unused [UnusedResources]
+    <color name="md_theme_dark_onError">#690005</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:45: Warning: The resource R.color.md_theme_dark_errorContainer appears to be unused [UnusedResources]
+    <color name="md_theme_dark_errorContainer">#93000A</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:46: Warning: The resource R.color.md_theme_dark_onErrorContainer appears to be unused [UnusedResources]
+    <color name="md_theme_dark_onErrorContainer">#FFDAD6</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:47: Warning: The resource R.color.md_theme_dark_surface appears to be unused [UnusedResources]
+    <color name="md_theme_dark_surface">#1C1B1F</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:48: Warning: The resource R.color.md_theme_dark_onSurface appears to be unused [UnusedResources]
+    <color name="md_theme_dark_onSurface">#E6E1E5</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:49: Warning: The resource R.color.md_theme_dark_surfaceVariant appears to be unused [UnusedResources]
+    <color name="md_theme_dark_surfaceVariant">#49454F</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:50: Warning: The resource R.color.md_theme_dark_onSurfaceVariant appears to be unused [UnusedResources]
+    <color name="md_theme_dark_onSurfaceVariant">#CAC4D0</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:51: Warning: The resource R.color.md_theme_dark_outline appears to be unused [UnusedResources]
+    <color name="md_theme_dark_outline">#938F99</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:52: Warning: The resource R.color.md_theme_dark_outlineVariant appears to be unused [UnusedResources]
+    <color name="md_theme_dark_outlineVariant">#49454F</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:53: Warning: The resource R.color.md_theme_dark_inverseSurface appears to be unused [UnusedResources]
+    <color name="md_theme_dark_inverseSurface">#E6E1E5</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:54: Warning: The resource R.color.md_theme_dark_inverseOnSurface appears to be unused [UnusedResources]
+    <color name="md_theme_dark_inverseOnSurface">#313033</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\colors.xml:55: Warning: The resource R.color.md_theme_dark_inversePrimary appears to be unused [UnusedResources]
+    <color name="md_theme_dark_inversePrimary">#6750A4</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\strings.xml:5: Warning: The resource R.string.new_note appears to be unused [UnusedResources]
+    <string name="new_note">新規メモ</string>
+            ~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\strings.xml:6: Warning: The resource R.string.recent_notes appears to be unused [UnusedResources]
+    <string name="recent_notes">最近のメモ</string>
+            ~~~~~~~~~~~~~~~~~~~
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\values\strings.xml:7: Warning: The resource R.string.open_obsidian appears to be unused [UnusedResources]
+    <string name="open_obsidian">Obsidianを開く</string>
+            ~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+C:\Users\kaito\Desktop\Coding\obs\src\main\AndroidManifest.xml:12: Warning: Should explicitly set android:icon, there is no default [MissingApplicationIcon]
+    <application
+     ~~~~~~~~~~~
+
+   Explanation for issues of type "MissingApplicationIcon":
+   You should set an icon for the application as whole because there is no
+   default. This attribute must be set as a reference to a drawable resource
+   containing the image (for example @drawable/icon).
+
+   https://developer.android.com/studio/publish/preparing#publishing-configure
+
+C:\Users\kaito\Desktop\Coding\obs\src\main\res\layout\obsidian_widget.xml:13: Warning: Hardcoded string "📝 Obsidian Widget", should use @string resource [HardcodedText]
+        android:text="📝 Obsidian Widget"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "HardcodedText":
+   Hardcoding text attributes directly in layout files is bad for several
+   reasons:
+
+   * When creating configuration variations (for example for landscape or
+   portrait) you have to repeat the actual text (and keep it up to date when
+   making changes)
+
+   * The application cannot be translated to other languages by just adding
+   new translations for existing string resources.
+
+   There are quickfixes to automatically extract this hardcoded string into a
+   resource lookup.
+
+0 errors, 67 warnings

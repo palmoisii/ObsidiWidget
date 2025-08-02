@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "com.example.obsidianwidget-merged_res-61:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.obsidianwidget-main-62:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.example.obsidianwidget-merged_res-61:/xml_backup_rules.xml.flat",
+        "source": "com.example.obsidianwidget-main-62:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.example.obsidianwidget-merged_res-61:/xml_obsidian_widget_info.xml.flat",
+        "source": "com.example.obsidianwidget-main-62:/xml/obsidian_widget_info.xml"
+    },
+    {
+        "merged": "com.example.obsidianwidget-merged_res-61:/layout_obsidian_widget.xml.flat",
+        "source": "com.example.obsidianwidget-main-62:/layout/obsidian_widget.xml"
+    },
+    {
+        "merged": "com.example.obsidianwidget-merged_res-61:/drawable_widget_background.xml.flat",
+        "source": "com.example.obsidianwidget-main-62:/drawable/widget_background.xml"
+    }
+]
