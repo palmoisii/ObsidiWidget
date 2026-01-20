@@ -5,12 +5,12 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.decodeFromString
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "widget_settings")
 
@@ -33,12 +33,12 @@ class WidgetPreferences(private val context: Context) {
     
     
     val customShortcuts: Flow<List<CustomShortcut>> = context.dataStore.data.map { preferences ->
-        val json = preferences[CUSTOM_SHORTCUTS_KEY] ?: ""
-        if (json.isEmpty()) {
+        val jsonStr = preferences[CUSTOM_SHORTCUTS_KEY] ?: ""
+        if (jsonStr.isEmpty()) {
             List(2) { CustomShortcut() }
         } else {
             try {
-                Json.decodeFromString<List<CustomShortcut>>(json)
+                json.decodeFromString<List<CustomShortcut>>(jsonStr)
             } catch (e: Exception) {
                 List(2) { CustomShortcut() }
             }
@@ -72,7 +72,7 @@ class WidgetPreferences(private val context: Context) {
             
             if (index in 0..1) {
                 shortcuts[index] = shortcut
-                preferences[CUSTOM_SHORTCUTS_KEY] = Json.encodeToString(shortcuts)
+                preferences[CUSTOM_SHORTCUTS_KEY] = json.encodeToString(shortcuts)
             }
         }
     }

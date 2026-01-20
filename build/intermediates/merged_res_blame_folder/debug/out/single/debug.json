@@ -1,23 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-merged_res-65:\\drawable_secondary_button_background.xml.flat",
-        "source": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-main-67:\\drawable\\secondary_button_background.xml"
-    },
-    {
         "merged": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-merged_res-65:\\xml_backup_rules.xml.flat",
         "source": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-main-67:\\xml\\backup_rules.xml"
     },
     {
         "merged": "com.example.obsidianwidget-merged_res-65:/drawable_ic_obsidian.xml.flat",
         "source": "com.example.obsidianwidget-main-67:/drawable/ic_obsidian.xml"
-    },
-    {
-        "merged": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-merged_res-65:\\drawable_ic_check.xml.flat",
-        "source": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-main-67:\\drawable\\ic_check.xml"
-    },
-    {
-        "merged": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-merged_res-65:\\drawable_circle_background.xml.flat",
-        "source": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-main-67:\\drawable\\circle_background.xml"
     },
     {
         "merged": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-merged_res-65:\\layout_obsidian_widget.xml.flat",
@@ -36,32 +24,16 @@
         "source": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-main-67:\\drawable\\ic_add.xml"
     },
     {
-        "merged": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-merged_res-65:\\drawable_ic_mic.xml.flat",
-        "source": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-main-67:\\drawable\\ic_mic.xml"
+        "merged": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-merged_res-65:\\drawable_ic_obsidian.xml.flat",
+        "source": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-main-67:\\drawable\\ic_obsidian.xml"
     },
     {
         "merged": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-merged_res-65:\\drawable_ic_today.xml.flat",
         "source": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-main-67:\\drawable\\ic_today.xml"
     },
     {
-        "merged": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-merged_res-65:\\drawable_ic_edit.xml.flat",
-        "source": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-main-67:\\drawable\\ic_edit.xml"
-    },
-    {
-        "merged": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-merged_res-65:\\drawable_rounded_background.xml.flat",
-        "source": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-main-67:\\drawable\\rounded_background.xml"
-    },
-    {
-        "merged": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-merged_res-65:\\drawable_ic_obsidian.xml.flat",
-        "source": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-main-67:\\drawable\\ic_obsidian.xml"
-    },
-    {
         "merged": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-merged_res-65:\\xml_obsidian_widget_info.xml.flat",
         "source": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-main-67:\\xml\\obsidian_widget_info.xml"
-    },
-    {
-        "merged": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-merged_res-65:\\drawable_ic_photo.xml.flat",
-        "source": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-main-67:\\drawable\\ic_photo.xml"
     },
     {
         "merged": "C:\\Users\\kaito\\.gradle\\daemon\\8.5\\com.example.obsidianwidget-merged_res-65:\\xml_data_extraction_rules.xml.flat",

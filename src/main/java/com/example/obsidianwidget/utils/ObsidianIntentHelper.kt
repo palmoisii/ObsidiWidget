@@ -8,6 +8,24 @@ import java.util.*
 
 object ObsidianIntentHelper {
     
+    private const val PLAY_STORE_PACKAGE = "md.obsidian"
+    
+    /**
+     * パスからVault名を抽出
+     */
+    fun extractVaultName(vaultPath: String): String {
+        if (vaultPath.isEmpty()) return "MyVault"
+        
+        return when {
+            vaultPath.startsWith("/tree/primary:") -> {
+                vaultPath.removePrefix("/tree/primary:").split("/").lastOrNull()?.takeIf { it.isNotEmpty() } ?: "MyVault"
+            }
+            else -> {
+                vaultPath.trimEnd('/').split("/").lastOrNull()?.takeIf { it.isNotEmpty() } ?: "MyVault"
+            }
+        }
+    }
+    
     /**
      * Obsidianアプリを開く
      */
@@ -113,9 +131,24 @@ object ObsidianIntentHelper {
     }
     
     /**
+     * Obsidian URIでIntent起動（エラーハンドリング付き）
+     */
+    fun launchObsidianUri(context: Context, uri: String) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        
+        try {
+            context.startActivity(intent)
+        } catch (e: Exception) {
+            android.util.Log.e("ObsidianIntentHelper", "Failed to launch URI: $uri", e)
+            openPlayStore(context)
+        }
+    }
+    
+    /**
      * Play Storeを開く
      */
-    private fun openPlayStore(context: Context, packageName: String) {
+    fun openPlayStore(context: Context, packageName: String = PLAY_STORE_PACKAGE) {
         val intent = Intent().apply {
             action = Intent.ACTION_VIEW
             data = Uri.parse("market://details?id=$packageName")
